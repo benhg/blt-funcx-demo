@@ -70,6 +70,7 @@ print(func_uuid)
 >>> 
 >>> blt_ep = "8e1bc858-feda-42b3-8b7a-5a058c0ef6ec" # Configured this earlier
 >>> res = fxc.run(endpoint_id=blt_ep, function_id=func_uuid)
+>>> print (fxc.get_result(res))
 ```
 
 
