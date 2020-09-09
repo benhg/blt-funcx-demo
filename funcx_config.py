@@ -1,14 +1,14 @@
-from funcx.config import Config
-from parsl.providers import LocalProvider
 
-config = Config(
-    scaling_enabled=True,
-    provider=LocalProvider(
-        init_blocks=1,
-        min_blocks=1,
-        max_blocks=1,
-    ),
-    max_workers_per_node=2,
+from funcx.config import Config
+from parsl.providers import GridEngineProvider
+from parsl.addresses import address_by_route
+
+config = Config(provider=GridEngineProvider(walltime='10000:00:00',
+                                                                  nodes_per_block=1,
+                                                                  init_blocks=1,
+                                                                  max_blocks=4,
+                                                                  scheduler_options="#$ -pe smp 2"
+                                                                  )
 )
 
 # For now, visible_to must be a list of URNs for globus auth users or groups, e.g.:
@@ -22,4 +22,3 @@ meta = {
     "public": False,
     "visible_to": []
 }
-
