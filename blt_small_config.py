@@ -1,5 +1,5 @@
 
-from funcx.config import Config
+from funcx_endpoint.endpoint.utils.config import Config
 from parsl.providers import GridEngineProvider
 from parsl.addresses import address_by_route
 
@@ -20,5 +20,6 @@ meta = {
     "organization": "",
     "department": "",
     "public": False,
-    "visible_to": []
+    # Adam UUID
+    "visible_to": ["urn:globus:auth:identity:57bc2f29-7689-4268-9f09-31e0ad14adab"]
 }
